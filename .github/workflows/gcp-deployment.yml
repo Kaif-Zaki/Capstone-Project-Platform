@@ -8,6 +8,7 @@ jobs:
     env:
       VM_NAME: vm-platform-seeed
       ZONE: asia-southeast1-c
+      USER_NAME: kaifzakey22
 
     permissions:
       contents: 'read'
@@ -29,7 +30,7 @@ jobs:
 
       - name: Connect with the vm-platform-seeed through SSH and pull the latest code from the repository
         run: >
-            gcloud compute ssh ${{ env.VM_NAME }} --zone=${{ env.ZONE }}
+            gcloud compute ssh  ${{ env.USER_NAME }}@${{ env.VM_NAME }} --zone=${{ env.ZONE }}
             --command="echo 'Connected to vm-platform-seeed Successfully!' &&
             pwd && whoami
             "
