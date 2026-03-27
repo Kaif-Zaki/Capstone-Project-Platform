@@ -28,9 +28,11 @@ jobs:
       - name: Start the vm-platform-seeed
         run: gcloud compute instances start ${{ env.VM_NAME }} --zone=${{ env.ZONE }}
 
-      - name: Connect with the vm-platform-seeed through SSH and pull the latest code from the repository
+      - name: Connect with the vm-platform-seeed through SSH and pull the latest code and build the project
         run: >
             gcloud compute ssh  ${{ env.USER_NAME }}@${{ env.VM_NAME }} --zone=${{ env.ZONE }}
             --command="echo 'Connected to vm-platform-seeed Successfully!' &&
-            pwd && whoami
+            cd Capstone-Project-Platform/ &&
+            git pull --recurse-modules &&
+            mvn clean package
             "
