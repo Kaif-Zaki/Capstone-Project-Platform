@@ -30,6 +30,6 @@ jobs:
       - name: Connect with the vm-platform-seeed through SSH and pull the latest code from the repository
         run: >
             gcloud compute ssh ${{ env.VM_NAME }} --zone=${{ env.ZONE }}
-            --command="echo 'Connected to vm-platform-seeed Successfully!'
+            --command="echo 'Connected to vm-platform-seeed Successfully!' &&
             cd Capstone-Project-Platform/
             "
